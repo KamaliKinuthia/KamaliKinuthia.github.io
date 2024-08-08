@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Header styling */
+        header {
+            background: url("background_1.jpg") no-repeat center center/cover;
+            height: 100vh;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        header nav {
+            margin-top: 20px;
+        }
+
+        header nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* About section styling */
+        #summary {
+            background-color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        #summary h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        #summary p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #555;
+        }
+
+        /* Skills section styling */
+        #skills {
+            background-color: #f9f9f9;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        #skills h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        #skills ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        #skills li {
+            background-color: #fff;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            text-align: center;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Projects section styling */
+        #projects {
+            background-color: #fff;
+            padding: 60px 20px;
+        }
+
+        #projects h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+        }
+
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        .card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            flex: 0 0 300px;
+            margin: 0 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            margin: 5px 0;
+        }
+
+        /* Social Media section styling */
+        #social-media {
+            background-color: #f4f4f4;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        #social-media h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        #social-media ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        #social-media li {
+            margin: 0 10px;
+        }
+
+        #social-media a {
+            color: #333;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        /* Accomplishments section styling */
+        #accomplishments {
+            background-color: #f4f4f4;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        #accomplishments h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        .accomplishment-card {
+            background-color: #fff;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            width: 300px;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .accomplishment-card img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .accomplishment-card .description {
+            display: none;
+            text-align: left;
+            color: #333;
+        }
+
+        /* YouTube Videos section styling */
+        #videos {
+            background-color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        #videos h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        .videos-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .video-card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 320px; /* Default width */
+        }
+
+        .video-card iframe {
+            width: 100%;
+            height: 180px; /* Default height */
+            border-radius: 8px;
+        }
+
+        .resize-controls button {
+            display: inline-block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Kamali Kinuthia</h1>
+        <p></p>
+        <nav>
+            <a href="#summary">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#social-media">Contact</a>
+        </nav>
+    </header>
+
+    <!-- About Section -->
+    <section id="summary">
+        <h2>About Kamali Kinuthia</h2>
+        <p>Kamali Kinuthia is a passionate machine learning and data science enthusiast with a solid background in statistical analysis and programming. Eager to learn and explore new technologies, Kamali is dedicated to using data to drive meaningful insights and innovations.</p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>My Documents</h2>
+        <div class="carousel">
+            <!-- Project cards -->
+            <div class="card">
+                <img src="./driver12.jpeg" alt="innovation">
+                <a href="./documentation12.docx" target="_blank">
+                    <p>Driver Monitoring System</p>
+                    <p>Documentation Driver Monitoring System</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="./autobiography3.pptx" target="_blank">
+                    <img src="./tg.jpg" alt="autobiography">
+                    <p>My Autobiography</p>
+                    <p>PPT Slides</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="./AUTOBIOGRAPHY2.docx" target="_blank">
+                    <img src="./tg.jpg" alt="autobiography">
+                    <p>My Autobiography</p>
+                    <p>Word Document</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="./cv (1).docx" target="_blank">
+                    <img src="./cv.jpeg" alt="cv">
+                    <p>My CV</p>
+                    <p>English</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="./wasifu kazi1b.docx" target="_blank">
+                    <img src="./cv.jpeg" alt="cv">
+                    <p>My CV</p>
+                    <p>Kiswahili</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>My Skills</h2>
+        <ul>
+            <li>Python </li>
+            <li>R </li>
+	    <li>SQL</li>
+            <li>Data Visualization</li>
+	    <li>Machine Learning</li>
+            
+        </ul>
+    </section>
+
+    <!-- Accomplishments Section -->
+    <section id="accomplishments">
+        <h2>My Accomplishments</h2>
+       
+	<div class="accomplishment-card" onclick="toggleDescription(this)">
+            <img src="driver12.jpeg" alt="accomplishment image">
+            <h3>Driver monitoring system</h3>
+            <p class="description">The Driver Monitoring System is a new camera-based technology  that tracks driver alertness. The system not only recognizes the driver, it also checks his or her level of vigilance in order to increase safety for passengers and other road users. The Driver Monitoring System alerts the driver when it detects signs of drowsiness or distraction.</p>
+        </div>
+	<div class="accomplishment-card" onclick="toggleDescription(this)">
+            <img src="mall.jpeg" alt="accomplishment image">
+            <h3>House prediction</h3>
+            <p class="description">linear regression model to predict the prices of houses based on their square footage and the number of bedrooms and bathrooms</p>
+        </div>
+	<div class="accomplishment-card" onclick="toggleDescription(this)">
+            <img src="hand_tracking.jpg" alt="accomplishment image">
+            <h3>Hand gesture recognition</h3>
+            <p class="description">hand gesture recognition model that can accurately identify and classify different hand gestures from image or video data, enabling intuitive human-computer interaction and gesture-based control systems. Dataset :- https://www.kaggle.com/gti-upm/leapgestrecog</p>
+        </div>
+        <!-- More accomplishment cards can be added similarly -->
+    </section>
+
+    <!-- YouTube Videos Section -->
+    <section id="videos">
+        <h2>YouTube Videos</h2>
+        <div class="videos-container">
+            <!-- Video cards -->
+            <div class="video-card">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/ElV6C0lkdKQ" frameborder="0" allowfullscreen></iframe>
+	 	<p>Gender awareness</p>
+                <div class="resize-controls">
+                    <button onclick="resizeVideo(this, 'small')">Small</button>
+                    <button onclick="resizeVideo(this, 'medium')">Medium</button>
+                    <button onclick="resizeVideo(this, 'large')">Large</button>
+                </div>
+            </div>
+
+            <!-- Add more video cards as needed -->
+        </div>
+    </section>
+
+     <!-- Social Media Section -->
+  <section id="social-media">
+    <h2>Connect with Me</h2>
+    <ul>
+        <li><a href="https://www.linkedin.com/in/kamali-kinuthia-357a5a224" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+        <li><a href="https://github.com/KamaliKinuthia" target="_blank"><i class="fab fa-github"></i></a></li>
+        <li><a href="https://www.reddit.com/user/TraditionalSpeed1973" target="_blank"><i class="fab fa-reddit"></i></a></li>
+        <li><a href="mailto:kamalijosephat032@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a></li>
+        <li><a href="https://wa.me/+254769492324" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+    </ul>
+</section>
+
+    <script>
+        function resizeVideo(button, size) {
+            const videoCard = button.closest('.video-card');
+            const iframe = videoCard.querySelector('iframe');
+
+            switch (size) {
+                case 'small':
+                    iframe.style.width = '320px';
+                    iframe.style.height = '180px';
+                    break;
+                case 'medium':
+                    iframe.style.width = '640px';
+                    iframe.style.height = '360px';
+                    break;
+                case 'large':
+                    iframe.style.width = '960px';
+                    iframe.style.height = '540px';
+                    break;
+                default:
+                    iframe.style.width = '320px';
+                    iframe.style.height = '180px';
+            }
+        }
+
+        function toggleDescription(card) {
+            const description = card.querySelector('.description');
+            if (description.style.display === 'none' || !description.style.display) {
+                description.style.display = 'block';
+            } else {
+                description.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
